@@ -1,0 +1,107 @@
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Pocetna</a>
+            <a class="nav-item nav-link" href="#">O nama</a>
+            <a class="nav-item nav-link" href="#">Kontakt</a>
+          </div>
+        </div>
+      </nav>
+    <!-- Navbar -->
+
+    <!-- Background image -->
+    <div class="p-5 text-center bg-image" alt="Wild Landscape" style="
+      background-color: #70cdcc;
+      height: 550px;
+      margin-top: 58px;    
+      background-repeat: no-repeat;
+      background-size: cover;">
+        <div class="container w-50" style="max-width: 35%; text-align: left;">
+            <div class="row ">
+                <div class="col-sm-7">
+                    <div class="card mt-2 mx-auto p-4 bg-light">
+                        <div class="card-body bg-light">
+                            <form id="contact-form">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="roomNumber" style="margin-bottom: 5px; ">Unesite broj sobe: <span style="color: red;">*</span></label>
+                                                <input name="roomNumber" id="roomNumber" #newroomNumber
+                                                    class="form-control" placeholder="Molimo unesite broj sobe"
+                                                    required="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="h_name" style="margin-bottom: 5px;">Unesite naziv hotela: <span style="color: red;">*</span></label>
+                                                <input name="h_name" id="h_name" #newh_name class="form-control"
+                                                    placeholder="Molimo unesite naziv hotela" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="availablePpl" style="margin-bottom: 5px;">Unesite broj osoba: <span style="color: red;">*</span></label>
+                                                <input name="availablePpl" id="availablePpl" #newavailablePpl
+                                                    class="form-control" placeholder="Molimo unesite broj osoba"
+                                                    required="required">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="price" style="margin-bottom: 5px;">Unesite cenu za noc: <span style="color: red;">*</span></label>
+                                                <input name="price" id="price" #newprice class="form-control"
+                                                    placeholder="Unesite najvecu cenu koju biste platili" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" style="margin-top: 10px;">
+                                            <button style="min-width: 100%;"
+                                                class="btn btn-success btn-send pt-2 btn-block" type="button"
+                                                (click)="addRoom(newroomNumber, newh_name, newavailablePpl, newprice)">
+                                                Dodajte sobu
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 10px;">
+                                        <label for="title" style="margin-bottom: 5px;">Pretrazite sobe prema ceni:</label>
+                                        <input input [(ngModel)]="userPrice"
+                                            style="max-width: 55%; float: left; margin-right: 4%;" name="title"
+                                            class="form-control input-sm" placeholder="Unesite najvecu cenu" />
+                                
+                                        <span class="input-group-btn" style="width:0px;"></span>
+                                        <label for="rnddugme" style="margin-bottom: 5px; margin-top: 20px;">Prikazite sobe nasumicno: </label>
+                                        <button type="button" (click)="shuffle(rooms)"
+                                            class="btn btn-success btn-send pt-2 btn-block" name="rnddugme" style="max-width: 70%;">
+                                             Random
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Background image -->
+</header>
+<div class="ui grid posts">
+
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <app-rooms *ngFor="let room of rooms | filterByUP:userPrice;" [room]="room">
+                </app-rooms>
+            </div>
+        </div>
+    </section>
+</div>

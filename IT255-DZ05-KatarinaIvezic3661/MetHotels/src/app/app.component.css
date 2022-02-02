@@ -1,0 +1,31 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+body {
+    font-family:'Courier New', Courier, monospace;
+    background-color: #208454;
+}
+
+h1 {
+    margin-bottom: 40px
+}
+
+label {
+    color: #333;
+    font-weight: bold;
+}
+
+.btn-send {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 80%;
+    margin-left: 3px;
+    background-color: #96516a;
+    border: none;
+}
+
+.card {
+    border-style: none;
+    max-height: 90%;
+    margin-left: 10px;
+    margin-right: 10px
+}
